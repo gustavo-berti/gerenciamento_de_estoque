@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
+import 'package:gerenciamento_de_estoque/database/category.dart';
 import 'package:gerenciamento_de_estoque/database/database.dart';
+import 'package:gerenciamento_de_estoque/database/product.dart';
 
 class WidgetProductForm extends StatefulWidget {
   const WidgetProductForm({super.key});
@@ -12,11 +14,13 @@ class WidgetProductForm extends StatefulWidget {
 class _WidgetProductFormState extends State<WidgetProductForm> {
   final _formKey = GlobalKey<FormState>();
   late String productName;
+  late Category category;
 
   @override
   Widget build(BuildContext context) {
     return createScaffold(
       body: Form(
+        key: _formKey,
         child: Center(
           child: Column(
             children: [
@@ -37,13 +41,50 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
               createDropdownFormField(
                 label: "Categoria",
                 hint: "Selecione a categoria do produto",
-                items: Database.categories.isEmpty ? [] : Database.categories.map((category) {
-                        return DropdownMenuItem(
-                          value: category,
-                          child: Text(category.name),
+                items:
+                    Database.categories.isEmpty
+                        ? []
+                        : Database.categories.map((category) {
+                          return DropdownMenuItem(
+                            value: category,
+                            child: Text(category.name),
+                          );
+                        }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    category = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Categoria é obrigatório";
+                  }
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  newButton(
+                    text: "Salvar",
+                    function: () {
+                      if (_formKey.currentState!.validate()) {
+                        Database.products.add(
+                          Product(name: productName, category: category),
                         );
-                      }).toList(),
-                onChanged: (value) {},
+                        Navigator.pop(context);
+                      }
+                    },
+                    size: 100,
+                  ),
+                  Padding(padding: EdgeInsets.all(2)),
+                  newButton(
+                    text: "Cancelar",
+                    function: () {
+                      Navigator.pop(context);
+                    },
+                    size: 110,
+                  ),
+                ],
               ),
             ],
           ),

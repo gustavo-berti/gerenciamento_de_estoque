@@ -15,14 +15,17 @@ Widget createScaffold({
   );
 }
 
-Widget newButton({required String text, required VoidCallback function}) {
+Widget newButton({required String text, required VoidCallback function, size}) {
   return ElevatedButton(
     onPressed: function,
     style: ButtonStyle(
       backgroundColor: WidgetStateProperty.all<Color>(
         const Color.fromRGBO(187, 222, 251, 1),
       ),
-      fixedSize: WidgetStateProperty.all(Size.fromWidth(280)),
+      fixedSize:
+          size == null
+              ? WidgetStateProperty.all(Size.fromWidth(280))
+              : WidgetStateProperty.all(Size.fromWidth(size)),
     ),
     child: Text(text, style: TextStyle(color: Colors.black)),
   );
