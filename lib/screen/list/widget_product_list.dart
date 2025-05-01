@@ -5,8 +5,6 @@ import 'package:gerenciamento_de_estoque/database/database.dart';
 
 class WidgetProductList extends StatelessWidget {
   const WidgetProductList({super.key});
-
-
   
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:gerenciamento_de_estoque/config/routes.dart';
 import 'package:gerenciamento_de_estoque/screen/form/widget_category_form.dart';
 import 'package:gerenciamento_de_estoque/screen/form/widget_product_form.dart';
 import 'package:gerenciamento_de_estoque/screen/form/widget_supplier_form.dart';
-import 'package:gerenciamento_de_estoque/screen/list/widger_supplier_list.dart';
+import 'package:gerenciamento_de_estoque/screen/list/widget_supplier_list.dart';
 import 'package:gerenciamento_de_estoque/screen/list/widget_category_list.dart';
 import 'package:gerenciamento_de_estoque/screen/list/widget_product_list.dart';
 import 'package:gerenciamento_de_estoque/screen/widget_login.dart';

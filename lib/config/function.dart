@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 Widget createScaffold({
   required Widget body,
+  String title = "Gerenciameno de Estoque",
   FloatingActionButton? floatingActionButton,
 }) {
   return Scaffold(
     appBar: AppBar(
-      title: Text("Gerenciamento de Estoque"),
+      title: Text(title),
       backgroundColor: const Color.fromRGBO(187, 222, 251, 1),
       centerTitle: true,
     ),
@@ -42,17 +43,17 @@ createFloatingActionButton({required Function() onPressed}) {
 }
 
 Widget createTextFormField({
-  required label,
-  required hint,
-  obscure = false,
+  required String label,
+  required String hint,
+  bool obscure = false,
   onChanged,
   validator,
 }) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
     child: TextFormField(
       decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
         labelText: label,
         hintText: hint,
       ),
@@ -71,7 +72,7 @@ Widget createDropdownFormField({
   validator,
 }) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
     child: DropdownButtonFormField(
       items: items,
       decoration: InputDecoration(
@@ -82,5 +83,22 @@ Widget createDropdownFormField({
       onChanged: onChanged,
       validator: validator,
     ),
+  );
+}
+
+Widget createSaveCancelButton({required context, required function}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      newButton(text: "Salvar", function: function, size: 100),
+      Padding(padding: EdgeInsets.all(2)),
+      newButton(
+        text: "Cancelar",
+        function: () {
+          Navigator.pop(context);
+        },
+        size: 110,
+      ),
+    ],
   );
 }

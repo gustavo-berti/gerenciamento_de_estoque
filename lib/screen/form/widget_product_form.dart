@@ -56,35 +56,21 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   });
                 },
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  if (value == null) {
                     return "Categoria é obrigatório";
                   }
                 },
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  newButton(
-                    text: "Salvar",
-                    function: () {
-                      if (_formKey.currentState!.validate()) {
-                        Database.products.add(
-                          Product(name: productName, category: category),
-                        );
-                        Navigator.pop(context);
-                      }
-                    },
-                    size: 100,
-                  ),
-                  Padding(padding: EdgeInsets.all(2)),
-                  newButton(
-                    text: "Cancelar",
-                    function: () {
-                      Navigator.pop(context);
-                    },
-                    size: 110,
-                  ),
-                ],
+              createSaveCancelButton(
+                context: context,
+                function: () {
+                  if (_formKey.currentState!.validate()) {
+                    Database.products.add(
+                      Product(name: productName, category: category),
+                    );
+                    Navigator.pop(context);
+                  }
+                },
               ),
             ],
           ),
