@@ -17,6 +17,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
   @override
   Widget build(BuildContext context) {
     return createScaffold(
+      title: "Cadastrar Categoria",
       body: Form(
         key: _formKey,
         child: Center(

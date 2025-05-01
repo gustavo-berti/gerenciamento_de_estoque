@@ -9,6 +9,7 @@ class WidgetProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return createScaffold(
+      title: "Produtos",
       body: Center(
         child: ListView.builder(
           itemCount: Database.products.isEmpty ? 0 : Database.products.length,

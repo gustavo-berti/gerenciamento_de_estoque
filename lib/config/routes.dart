@@ -7,6 +7,5 @@ class Routes {
   static const categoryList = '/category-list';
   static const supplierForm = '/supplier-form';
   static const supplierList = '/supplier-list';
-  static const stockEntry = '/stockEntry';
-  static const stockOut = '/stockOut'; 
+  static const stock = '/stock'; 
 }

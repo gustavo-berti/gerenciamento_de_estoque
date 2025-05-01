@@ -8,8 +8,7 @@ import 'package:gerenciamento_de_estoque/screen/list/widget_category_list.dart';
 import 'package:gerenciamento_de_estoque/screen/list/widget_product_list.dart';
 import 'package:gerenciamento_de_estoque/screen/widget_login.dart';
 import 'package:gerenciamento_de_estoque/screen/widget_menu.dart';
-import 'package:gerenciamento_de_estoque/screen/widget_stock_entry.dart';
-import 'package:gerenciamento_de_estoque/screen/widget_stock_out.dart';
+import 'package:gerenciamento_de_estoque/screen/widget_stock.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -30,8 +29,7 @@ class App extends StatelessWidget {
         Routes.categoryList: (context) => WidgetCategoryList(),
         Routes.supplierForm: (context) => WidgetSupplierForm(),
         Routes.supplierList: (context) => WidgetSupplierList(),
-        Routes.stockEntry: (context) => WidgetStockEntry(),
-        Routes.stockOut: (context) => WidgetStockOut(),
+        Routes.stock: (context) => WidgetStock(),
       },
     );
   }

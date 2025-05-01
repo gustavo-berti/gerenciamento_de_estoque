@@ -9,6 +9,7 @@ class WidgetCategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return createScaffold(
+      title: "Categorias",
       body: Center(
         child: ListView.builder(
           itemCount:

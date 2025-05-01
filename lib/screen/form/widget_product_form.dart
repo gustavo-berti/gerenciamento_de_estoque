@@ -3,6 +3,7 @@ import 'package:gerenciamento_de_estoque/config/function.dart';
 import 'package:gerenciamento_de_estoque/database/category.dart';
 import 'package:gerenciamento_de_estoque/database/database.dart';
 import 'package:gerenciamento_de_estoque/database/product.dart';
+import 'package:gerenciamento_de_estoque/database/supplier.dart';
 
 class WidgetProductForm extends StatefulWidget {
   const WidgetProductForm({super.key});
@@ -15,10 +16,12 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
   final _formKey = GlobalKey<FormState>();
   late String productName;
   late Category category;
+  late Supplier supplier;
 
   @override
   Widget build(BuildContext context) {
     return createScaffold(
+      title: "Cadastrar Produtos",
       body: Form(
         key: _formKey,
         child: Center(
@@ -61,12 +64,35 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
+              createDropdownFormField(
+                label: "Fornecedor",
+                hint: "Selecione o fornecedor do produto",
+                items:
+                    Database.suppliers.isEmpty
+                        ? []
+                        : Database.suppliers.map((supplier) {
+                          return DropdownMenuItem(
+                            value: supplier,
+                            child: Text(supplier.name),
+                          );
+                        }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    supplier = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return "Forncedor é obrigatório";
+                  }
+                },
+              ),
               createSaveCancelButton(
                 context: context,
                 function: () {
                   if (_formKey.currentState!.validate()) {
                     Database.products.add(
-                      Product(name: productName, category: category),
+                      Product(name: productName, category: category, supplier: supplier),
                     );
                     Navigator.pop(context);
                   }
