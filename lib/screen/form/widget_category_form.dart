@@ -13,6 +13,8 @@ class WidgetCategoryForm extends StatefulWidget {
 class _WidgetProductFormState extends State<WidgetCategoryForm> {
   final _formKey = GlobalKey<FormState>();
   late String name;
+  late String description;
+  late String acronym;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +39,37 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   }
                 },
               ),
+              createTextFormField(
+                label: "Descrição",
+                hint: "Coloque a descrição da Categoria",
+                onChanged: (value) {
+                  setState(() {
+                    description = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Descrição é obrigatório";
+                  }
+                },
+              ),
+              createTextFormField(
+                label: "Sigla",
+                hint: "Coloque a sigla da Categoria",
+                onChanged: (value) {
+                  setState(() {
+                    name = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Sigla é obrigatório";
+                  }
+                },
+              ),
               createSaveCancelButton(context: context, function: (){
                 if(_formKey.currentState!.validate()){
-                  Database.categories.add(Category(name: name));
+                  Database.categories.add(Category(name: name, description: description, acronym: acronym));
                   Navigator.pop(context);
                 }
               })

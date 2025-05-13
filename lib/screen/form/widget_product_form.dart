@@ -17,6 +17,8 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
   late String productName;
   late Category category;
   late Supplier supplier;
+  late double profitMargin;
+  late double buyPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +89,40 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
+              createTextFormField(
+                label: "Preço de compra",
+                hint: "Coloque o preço de compra do produto",
+                onChanged: (value) {
+                  setState(() {
+                    buyPrice = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null || value == '') {
+                    return "Preço de compra do produto é obrigatório";
+                  }
+                },
+              ),
+              createTextFormField(
+                label: "Margem de lucro",
+                hint: "Coloque a margem de lucro do produto",
+                onChanged: (value) {
+                  setState(() {
+                    profitMargin = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null || value == '') {
+                    return "Margem de lucro é obrigatório";
+                  }
+                },
+              ),
               createSaveCancelButton(
                 context: context,
                 function: () {
                   if (_formKey.currentState!.validate()) {
                     Database.products.add(
-                      Product(name: productName, category: category, supplier: supplier),
+                      Product(name: productName, category: category, supplier: supplier, amount: 0, buyPrice: buyPrice, sellPrice: (buyPrice*profitMargin)),
                     );
                     Navigator.pop(context);
                   }
