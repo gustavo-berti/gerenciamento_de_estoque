@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/database/category.dart';
-import 'package:gerenciamento_de_estoque/database/database.dart';
-import 'package:gerenciamento_de_estoque/database/product.dart';
-import 'package:gerenciamento_de_estoque/database/supplier.dart';
+import 'package:gerenciamento_de_estoque/entity/category.dart';
+import 'package:gerenciamento_de_estoque/entity/database.dart';
+import 'package:gerenciamento_de_estoque/entity/product.dart';
+import 'package:gerenciamento_de_estoque/entity/supplier.dart';
 
 class WidgetProductForm extends StatefulWidget {
   const WidgetProductForm({super.key});

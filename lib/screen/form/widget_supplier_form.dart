@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/database/database.dart';
-import 'package:gerenciamento_de_estoque/database/supplier.dart';
+import 'package:gerenciamento_de_estoque/entity/database.dart';
+import 'package:gerenciamento_de_estoque/entity/supplier.dart';
 
 class WidgetSupplierForm extends StatefulWidget {
   const WidgetSupplierForm({super.key});

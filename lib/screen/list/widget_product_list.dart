@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
 import 'package:gerenciamento_de_estoque/config/routes.dart';
-import 'package:gerenciamento_de_estoque/database/database.dart';
+import 'package:gerenciamento_de_estoque/entity/database.dart';
 
 class WidgetProductList extends StatelessWidget {
   const WidgetProductList({super.key});

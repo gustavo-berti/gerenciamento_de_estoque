@@ -15,7 +15,7 @@ class WidgetLogin extends StatelessWidget {
             children: [
               createTextFormField(label: "Login", hint: "Coloque seu login"),
               createTextFormField(label: "Senha", hint: "Coloque sua senha", obscure: true),
-              newButton(
+              createElevatedButton(
                 text: "Entrar",
                 function: () {
                   Navigator.pushNamed(context, Routes.menu);

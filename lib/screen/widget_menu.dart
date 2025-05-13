@@ -10,13 +10,43 @@ class WidgetMenu extends StatelessWidget {
     return createScaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: EdgeInsets.all(5)),
-            newButton(text: "Produtos", function: () => Navigator.pushNamed(context, Routes.productList),),
-            newButton(text: "Categorias", function: () => Navigator.pushNamed(context, Routes.categoryList),),
-            newButton(text: "Fornecedores", function: () => Navigator.pushNamed(context, Routes.supplierList),),
-            newButton(text: "Estoque", function: () => Navigator.pushNamed(context, Routes.stock),),
-            newButton(text: "Sair do sistema", function: () => Navigator.pop(context),),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: GridView.count(
+                childAspectRatio: 1.5,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: 2,
+                shrinkWrap: true,
+                children: [
+                  createMenuButton(
+                    text: "Produtos",
+                    function:
+                        () => Navigator.pushNamed(context, Routes.productList),
+                  ),
+                  createMenuButton(
+                    text: "Categorias",
+                    function:
+                        () => Navigator.pushNamed(context, Routes.categoryList),
+                  ),
+                  createMenuButton(
+                    text: "Fornecedores",
+                    function:
+                        () => Navigator.pushNamed(context, Routes.supplierList),
+                  ),
+                  createMenuButton(
+                    text: "Estoque",
+                    function: () => Navigator.pushNamed(context, Routes.stock),
+                  ),
+                ],
+              ),
+            ),
+            createMenuButton(
+              text: "Sair do sistema",
+              function: () => Navigator.pop(context),
+            ),
           ],
         ),
       ),
