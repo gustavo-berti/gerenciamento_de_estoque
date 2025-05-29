@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/entity/database.dart';
-import 'package:gerenciamento_de_estoque/screen/form/widget_movement_form.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_floating_button.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
+import 'package:gerenciamento_de_estoque/presentation/screens/movement/widget_movement_form.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_floating_button.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
 
 class WidgetStock extends StatefulWidget {
   const WidgetStock({super.key});

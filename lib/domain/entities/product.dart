@@ -1,5 +1,5 @@
-import 'package:gerenciamento_de_estoque/entity/category.dart';
-import 'package:gerenciamento_de_estoque/entity/supplier.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/category.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/supplier.dart';
 
 class Product {
   String name;

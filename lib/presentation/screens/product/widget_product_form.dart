@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/entity/category.dart';
-import 'package:gerenciamento_de_estoque/entity/database.dart';
-import 'package:gerenciamento_de_estoque/entity/product.dart';
-import 'package:gerenciamento_de_estoque/entity/supplier.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_dropdown_form_menu.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_save_cancel_buttons.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/category.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/product.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/supplier.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_dropdown_form_menu.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_save_cancel_buttons.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
 
 class WidgetProductForm extends StatefulWidget {
   const WidgetProductForm({super.key});
@@ -45,6 +44,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   if (value == null || value == '') {
                     return "Nome do produto é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomDropdownFormMenu(
@@ -68,6 +68,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   if (value == null) {
                     return "Categoria é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomDropdownFormMenu(
@@ -91,6 +92,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   if (value == null) {
                     return "Forncedor é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomTextFormField(
@@ -105,6 +107,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   if (value == null || value == '') {
                     return "Preço de compra do produto é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomTextFormField(
@@ -119,6 +122,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   if (value == null || value == '') {
                     return "Margem de lucro é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomSaveCancelButtons(

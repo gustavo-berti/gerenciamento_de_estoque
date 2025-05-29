@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/screen/widget_menu.dart';
+import 'package:gerenciamento_de_estoque/presentation/screens/menu/widget_menu.dart';
 
 class CustomScafolld extends StatelessWidget{
   final Widget body;

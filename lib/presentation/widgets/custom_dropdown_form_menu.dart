@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdownFormMenu extends StatelessWidget {
-  List<DropdownMenuItem> items;
+  final List<DropdownMenuItem> items;
   final String label;
   final String hint;
   final ValueChanged<dynamic>? onChanged;

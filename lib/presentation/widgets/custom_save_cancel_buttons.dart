@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_elevated_button.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_elevated_button.dart';
 
 class CustomSaveCancelButtons extends StatelessWidget {
   final VoidCallback function;

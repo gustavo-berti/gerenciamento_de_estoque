@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/entity/database.dart';
-import 'package:gerenciamento_de_estoque/entity/supplier.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_save_cancel_buttons.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/supplier.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_save_cancel_buttons.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
 
 class WidgetSupplierForm extends StatefulWidget {
   const WidgetSupplierForm({super.key});
@@ -13,7 +12,7 @@ class WidgetSupplierForm extends StatefulWidget {
   State<StatefulWidget> createState() => _WidgetSupplierForm();
 }
 
-class _WidgetSupplierForm extends State<WidgetSupplierForm>{
+class _WidgetSupplierForm extends State<WidgetSupplierForm> {
   final _formKey = GlobalKey<FormState>();
   late String name;
   String phoneNumber = "";
@@ -42,6 +41,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                   if (value == null || value.isEmpty) {
                     return "Nome da categoria é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomTextFormField(
@@ -49,7 +49,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                 hint: "Coloque o telefone do fornecedor",
                 onChanged: (value) {
                   setState(() {
-                    value != null ? phoneNumber = value : value = "";
+                    phoneNumber = value;
                   });
                 },
               ),
@@ -58,13 +58,14 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                 hint: "Coloque o nome da empresa do fornecedor",
                 onChanged: (value) {
                   setState(() {
-                    name = value;
+                    enterprise = value;
                   });
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Nome da empresa é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomTextFormField(
@@ -72,7 +73,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                 hint: "Coloque o email do fornecedor",
                 onChanged: (value) {
                   setState(() {
-                    value != null ? name = value : value = "";
+                    email = value;
                   });
                 },
               ),
@@ -81,21 +82,33 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                 hint: "Coloque o CEP do fornecedor",
                 onChanged: (value) {
                   setState(() {
-                    name = value;
+                    address = value;
                   });
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Nome da categoria é obrigatório";
                   }
+                  return null;
                 },
               ),
-              CustomSaveCancelButtons(context: context, function: (){
-                if(_formKey.currentState!.validate()){
-                  Database.suppliers.add(Supplier(name: name, address: address, email: email, enterprise: enterprise, phoneNumber: phoneNumber));
-                  Navigator.pop(context);
-                }
-              })
+              CustomSaveCancelButtons(
+                context: context,
+                function: () {
+                  if (_formKey.currentState!.validate()) {
+                    Database.suppliers.add(
+                      Supplier(
+                        name: name,
+                        address: address,
+                        email: email,
+                        enterprise: enterprise,
+                        phoneNumber: phoneNumber,
+                      ),
+                    );
+                    Navigator.pop(context);
+                  }
+                },
+              ),
             ],
           ),
         ),

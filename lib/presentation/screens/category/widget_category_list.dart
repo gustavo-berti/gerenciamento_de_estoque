@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/routes.dart';
-import 'package:gerenciamento_de_estoque/entity/database.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_floating_button.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/core/routes/routes.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_floating_button.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
 
 class WidgetCategoryList extends StatelessWidget {
   const WidgetCategoryList({super.key});

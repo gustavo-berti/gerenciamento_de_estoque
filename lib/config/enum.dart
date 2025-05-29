@@ -1,3 +1,0 @@
-enum MovimentType {
-  entry, exit
-}

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/entity/category.dart';
-import 'package:gerenciamento_de_estoque/entity/database.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_save_cancel_buttons.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/category.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_save_cancel_buttons.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
 
 class WidgetCategoryForm extends StatefulWidget {
   const WidgetCategoryForm({super.key});
@@ -40,6 +39,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   if (value == null || value.isEmpty) {
                     return "Nome da categoria é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomTextFormField(
@@ -54,6 +54,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   if (value == null || value.isEmpty) {
                     return "Descrição é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomTextFormField(
@@ -68,6 +69,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   if (value == null || value.isEmpty) {
                     return "Sigla é obrigatório";
                   }
+                  return null;
                 },
               ),
               CustomSaveCancelButtons(context: context, function: (){

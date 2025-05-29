@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gerenciamento_de_estoque/config/app.dart';
+import 'package:gerenciamento_de_estoque/presentation/app.dart';
 
 
 void main() {

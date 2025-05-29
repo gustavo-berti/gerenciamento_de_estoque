@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/routes.dart';
-import 'package:gerenciamento_de_estoque/config/function.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_elevated_button.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
-import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
+import 'package:gerenciamento_de_estoque/core/routes/routes.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_elevated_button.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
 
 class WidgetLogin extends StatelessWidget {
   const WidgetLogin({super.key});
