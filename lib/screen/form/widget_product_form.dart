@@ -4,6 +4,10 @@ import 'package:gerenciamento_de_estoque/entity/category.dart';
 import 'package:gerenciamento_de_estoque/entity/database.dart';
 import 'package:gerenciamento_de_estoque/entity/product.dart';
 import 'package:gerenciamento_de_estoque/entity/supplier.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_dropdown_form_menu.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_save_cancel_buttons.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
 
 class WidgetProductForm extends StatefulWidget {
   const WidgetProductForm({super.key});
@@ -22,14 +26,14 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(
+    return CustomScafolld(
       title: "Cadastrar Produtos",
       body: Form(
         key: _formKey,
         child: Center(
           child: Column(
             children: [
-              createTextFormField(
+              CustomTextFormField(
                 label: "Nome",
                 hint: "Coloque o nome do produto",
                 onChanged: (value) {
@@ -43,7 +47,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
-              createDropdownFormField(
+              CustomDropdownFormMenu(
                 label: "Categoria",
                 hint: "Selecione a categoria do produto",
                 items:
@@ -66,7 +70,7 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
-              createDropdownFormField(
+              CustomDropdownFormMenu(
                 label: "Fornecedor",
                 hint: "Selecione o fornecedor do produto",
                 items:
@@ -89,12 +93,12 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Preço de compra",
                 hint: "Coloque o preço de compra do produto",
                 onChanged: (value) {
                   setState(() {
-                    buyPrice = value;
+                    buyPrice = double.parse(value);
                   });
                 },
                 validator: (value) {
@@ -103,12 +107,12 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
-              createTextFormField(
-                label: "Margem de lucro",
+              CustomTextFormField(
+                label: "Margem de lucro (Sem '%')",
                 hint: "Coloque a margem de lucro do produto",
                 onChanged: (value) {
                   setState(() {
-                    profitMargin = value;
+                    profitMargin = double.parse(value);
                   });
                 },
                 validator: (value) {
@@ -117,13 +121,13 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   }
                 },
               ),
-              createSaveCancelButton(
+              CustomSaveCancelButtons(
                 context: context,
                 function: () {
                   if (_formKey.currentState!.validate()) {
                     Database.products.add(
-                      Product(name: productName, category: category, supplier: supplier, amount: 0, buyPrice: buyPrice, sellPrice: (buyPrice*profitMargin)),
-                    );
+                      Product(name: productName, category: category, supplier: supplier, amount: 0, buyPrice: buyPrice, sellPrice: (buyPrice * (1 + profitMargin / 100)),
+                    ));
                     Navigator.pop(context);
                   }
                 },

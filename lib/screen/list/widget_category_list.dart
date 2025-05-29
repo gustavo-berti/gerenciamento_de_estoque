@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/config/function.dart';
 import 'package:gerenciamento_de_estoque/config/routes.dart';
 import 'package:gerenciamento_de_estoque/entity/database.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_floating_button.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
 
 class WidgetCategoryList extends StatelessWidget {
   const WidgetCategoryList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(
+    return CustomScafolld(
       title: "Categorias",
       body: Center(
         child: ListView.builder(
@@ -19,7 +20,7 @@ class WidgetCategoryList extends StatelessWidget {
           },
         ),
       ),
-      floatingActionButton: createFloatingActionButton(
+      floatingActionButton: CustomFloatingButton(
         onPressed: () => Navigator.pushNamed(context, Routes.categoryForm),
       ),
     );

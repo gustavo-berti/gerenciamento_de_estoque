@@ -29,7 +29,7 @@ class App extends StatelessWidget {
         Routes.categoryList: (context) => WidgetCategoryList(),
         Routes.supplierForm: (context) => WidgetSupplierForm(),
         Routes.supplierList: (context) => WidgetSupplierList(),
-        Routes.stock: (context) => WidgetStock(),
+        Routes.home: (context) => WidgetStock(),
       },
     );
   }

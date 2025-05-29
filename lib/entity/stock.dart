@@ -8,15 +8,12 @@ class Stock {
   
   void updateStock(StockMovement stockMovement){
     switch(stockMovement.type){
-      case Type.entry:
+      case MovimentType.entry:
         
         break;
 
-      case Type.exit:
+      case MovimentType.exit:
 
-        break;
-
-      default:
         break;
     }
   }

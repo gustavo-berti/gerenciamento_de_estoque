@@ -5,6 +5,6 @@ class StockMovement {
   Product product;
   int amount;
   DateTime date;
-  Type type;
+  MovimentType type;
   StockMovement({required this.product, required this.amount, required this.date, required this.type});
 }

@@ -1,9 +1,10 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
 import 'package:gerenciamento_de_estoque/entity/database.dart';
 import 'package:gerenciamento_de_estoque/entity/supplier.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_save_cancel_buttons.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
 
 class WidgetSupplierForm extends StatefulWidget {
   const WidgetSupplierForm({super.key});
@@ -22,14 +23,14 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(
+    return CustomScafolld(
       title: "Cadastrar Fornecedores",
       body: Form(
         key: _formKey,
         child: Center(
           child: Column(
             children: [
-              createTextFormField(
+              CustomTextFormField(
                 label: "Nome",
                 hint: "Coloque o nome do fornecedor",
                 onChanged: (value) {
@@ -43,7 +44,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                   }
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Telefone",
                 hint: "Coloque o telefone do fornecedor",
                 onChanged: (value) {
@@ -52,7 +53,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                   });
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Empresa",
                 hint: "Coloque o nome da empresa do fornecedor",
                 onChanged: (value) {
@@ -66,7 +67,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                   }
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Email",
                 hint: "Coloque o email do fornecedor",
                 onChanged: (value) {
@@ -75,7 +76,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                   });
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Endereço",
                 hint: "Coloque o CEP do fornecedor",
                 onChanged: (value) {
@@ -89,7 +90,7 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm>{
                   }
                 },
               ),
-              createSaveCancelButton(context: context, function: (){
+              CustomSaveCancelButtons(context: context, function: (){
                 if(_formKey.currentState!.validate()){
                   Database.suppliers.add(Supplier(name: name, address: address, email: email, enterprise: enterprise, phoneNumber: phoneNumber));
                   Navigator.pop(context);

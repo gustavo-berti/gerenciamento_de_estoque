@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
 import 'package:gerenciamento_de_estoque/entity/database.dart';
+import 'package:gerenciamento_de_estoque/screen/form/widget_movement_form.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_floating_button.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
 
 class WidgetStock extends StatefulWidget {
   const WidgetStock({super.key});
@@ -14,7 +17,7 @@ class _WidgetStock extends State<WidgetStock> {
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(
+    return CustomScafolld(
       title: "Estoque",
       body: Center(
         child: ListView.builder(
@@ -34,10 +37,10 @@ class _WidgetStock extends State<WidgetStock> {
           },
         ),
       ),
-      floatingActionButton: createFloatingActionButton(
+      floatingActionButton: CustomFloatingButton(
         onPressed: () {
           setState(() {
-            //TODO Aba para adicionar e remover do estoque
+            showModalBottomSheet(context: context, builder: (context) => Padding(padding: EdgeInsets.all(5),child: WidgetMovementForm(),),);
           });
         },
       ),

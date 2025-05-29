@@ -4,8 +4,8 @@ import 'package:gerenciamento_de_estoque/entity/stock.dart';
 import 'package:gerenciamento_de_estoque/entity/supplier.dart';
 
 class Database {
-  static List<Product> products = [];
-  static List<Supplier> suppliers = [];
-  static List<Category> categories = [];
+  static List<Product> products = [Product(name: "Banana", category: Category(name: "Comida", acronym: "CO", description: "Comida"), supplier: Supplier(name: "Luan", address: "Paranavaí", email: "email@gmail", enterprise: "PHP", phoneNumber: "123"), buyPrice: 5.0, sellPrice: 7.5, amount: 2)];
+  static List<Supplier> suppliers = [Supplier(name: "Gustavo", address: "Alto Paraná", email: "email@gmail", enterprise: "Java", phoneNumber: "123")];
+  static List<Category> categories = [Category(name: "Eletrônico", acronym: "EL", description: "Eletrônico")];
   static Stock get stock => Stock(products: products);
 }

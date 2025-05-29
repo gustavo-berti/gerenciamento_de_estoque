@@ -1,3 +1,3 @@
-enum Type {
+enum MovimentType {
   entry, exit
 }

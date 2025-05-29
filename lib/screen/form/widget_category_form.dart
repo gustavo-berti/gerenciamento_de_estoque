@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/config/function.dart';
 import 'package:gerenciamento_de_estoque/entity/category.dart';
 import 'package:gerenciamento_de_estoque/entity/database.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_save_cancel_buttons.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_scaffold.dart';
+import 'package:gerenciamento_de_estoque/widgets/custom_text_form_field.dart';
 
 class WidgetCategoryForm extends StatefulWidget {
   const WidgetCategoryForm({super.key});
@@ -18,14 +21,14 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
 
   @override
   Widget build(BuildContext context) {
-    return createScaffold(
+    return CustomScafolld(
       title: "Cadastrar Categoria",
       body: Form(
         key: _formKey,
         child: Center(
           child: Column(
             children: [
-              createTextFormField(
+              CustomTextFormField(
                 label: "Nome",
                 hint: "Coloque o nome da Categoria",
                 onChanged: (value) {
@@ -39,7 +42,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   }
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Descrição",
                 hint: "Coloque a descrição da Categoria",
                 onChanged: (value) {
@@ -53,7 +56,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   }
                 },
               ),
-              createTextFormField(
+              CustomTextFormField(
                 label: "Sigla",
                 hint: "Coloque a sigla da Categoria",
                 onChanged: (value) {
@@ -67,7 +70,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   }
                 },
               ),
-              createSaveCancelButton(context: context, function: (){
+              CustomSaveCancelButtons(context: context, function: (){
                 if(_formKey.currentState!.validate()){
                   Database.categories.add(Category(name: name, description: description, acronym: acronym));
                   Navigator.pop(context);
