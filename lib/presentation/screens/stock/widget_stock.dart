@@ -37,9 +37,12 @@ class _WidgetStock extends State<WidgetStock> {
         ),
       ),
       floatingActionButton: CustomFloatingButton(
-        onPressed: () {
+        onPressed: () async {
+          final result = await showModalBottomSheet(context: context, builder: (context) => Padding(padding: EdgeInsets.all(5),child: WidgetMovementForm(),),);
           setState(() {
-            showModalBottomSheet(context: context, builder: (context) => Padding(padding: EdgeInsets.all(5),child: WidgetMovementForm(),),);
+            if(result == true){
+              setState(() {});
+            }
           });
         },
       ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/core/enums/movement_type.dart';
 import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
 import 'package:gerenciamento_de_estoque/domain/entities/product.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/stockMovement.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/stock_movement.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_dropdown_form_menu.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_elevated_button.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
@@ -16,10 +16,10 @@ class WidgetMovementForm extends StatefulWidget {
 
 class _WidgetMovementForm extends State<WidgetMovementForm> {
   final _formKey = GlobalKey<FormState>();
-  late Product product;
-  late int amount;
-  late MovementType type;
-
+  late Product? product;
+  late int? amount;
+  late MovementType? type;
+  
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -91,13 +91,14 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
                 if (_formKey.currentState!.validate()) {
                   Database.stock.updateStock(
                     StockMovement(
-                      product: product,
-                      amount: amount,
+                      product: product!,
+                      amount: amount!,
                       date: DateTime.now(),
-                      type: type,
+                      type: type!,
                     ),
                   );
                 }
+                Navigator.pop(context, true);
               },
             ),
           ],

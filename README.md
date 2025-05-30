@@ -1,6 +1,6 @@
 # gerenciamento_de_estoque
 
-A new Flutter project.
+Projeto desenvolvido na materia de Desenvolvimento de Dispositivos Móveis
 
 ## Getting Started
 

@@ -17,7 +17,10 @@ class CustomScafolld extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: hasDrawer ? Drawer(child: WidgetMenu()) : null,
+      drawer: hasDrawer ? Drawer(
+        
+        width: MediaQuery.of(context).size.width*0.5,
+        child: WidgetMenu()) : null,
       appBar: AppBar(
         title: Text(title),
         backgroundColor: const Color.fromRGBO(187, 222, 251, 1),
