@@ -44,12 +44,6 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
                   product = value;
                 });
               },
-              validator: (value) {
-                if (value == null) {
-                  return "Produto é obrigatório";
-                }
-                return null;
-              },
             ),
             CustomTextFormField(
               label: "Quantidade",
@@ -58,12 +52,6 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
                 setState(() {
                   amount = int.parse(value);
                 });
-              },
-              validator: (value) {
-                if (value == null || value == "") {
-                  return "Quantidade é obrigatória";
-                }
-                return null;
               },
             ),
             CustomDropdownFormMenu(
@@ -78,12 +66,6 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
                   type = value;
                 });
               },
-              validator: (value) {
-                if (value == null) {
-                  return "Tipo é obrigatório";
-                }
-                return null;
-              },
             ),
             CustomElevatedButton(
               text: "Salvar",
@@ -97,8 +79,8 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
                       type: type!,
                     ),
                   );
+                  Navigator.pop(context, true);
                 }
-                Navigator.pop(context, true);
               },
             ),
           ],

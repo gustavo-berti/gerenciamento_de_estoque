@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gerenciamento_de_estoque/core/utils/function.dart' as utils;
 
 class CustomDropdownFormMenu extends StatelessWidget {
   final List<DropdownMenuItem> items;
@@ -6,6 +7,7 @@ class CustomDropdownFormMenu extends StatelessWidget {
   final String hint;
   final ValueChanged<dynamic>? onChanged;
   final FormFieldValidator? validator;
+  final bool useDefaultValidator;
 
   CustomDropdownFormMenu({
     required this.label,
@@ -13,6 +15,7 @@ class CustomDropdownFormMenu extends StatelessWidget {
     required this.items,
     this.onChanged,
     this.validator,
+    this.useDefaultValidator = true,
   });
 
   @override
@@ -27,7 +30,10 @@ class CustomDropdownFormMenu extends StatelessWidget {
           hintText: hint,
         ),
         onChanged: onChanged,
-        validator: validator,
+        validator: utils.combinedValidator(
+          useDefaultValidator: useDefaultValidator,
+          customValidator: validator,
+        ),
       ),
     );
   }

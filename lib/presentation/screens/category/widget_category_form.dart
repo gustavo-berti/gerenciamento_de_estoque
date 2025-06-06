@@ -35,12 +35,6 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                     name = value;
                   });
                 },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Nome da categoria é obrigatório";
-                  }
-                  return null;
-                },
               ),
               CustomTextFormField(
                 label: "Descrição",
@@ -50,12 +44,6 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                     description = value;
                   });
                 },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Descrição é obrigatório";
-                  }
-                  return null;
-                },
               ),
               CustomTextFormField(
                 label: "Sigla",
@@ -64,12 +52,6 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
                   setState(() {
                     name = value;
                   });
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Sigla é obrigatório";
-                  }
-                  return null;
                 },
               ),
               CustomSaveCancelButtons(context: context, function: (){

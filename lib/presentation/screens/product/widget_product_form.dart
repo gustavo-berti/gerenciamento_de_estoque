@@ -40,12 +40,6 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                     productName = value;
                   });
                 },
-                validator: (value) {
-                  if (value == null || value == '') {
-                    return "Nome do produto é obrigatório";
-                  }
-                  return null;
-                },
               ),
               CustomDropdownFormMenu(
                 label: "Categoria",
@@ -63,12 +57,6 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   setState(() {
                     category = value;
                   });
-                },
-                validator: (value) {
-                  if (value == null) {
-                    return "Categoria é obrigatório";
-                  }
-                  return null;
                 },
               ),
               CustomDropdownFormMenu(
@@ -88,12 +76,6 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                     supplier = value;
                   });
                 },
-                validator: (value) {
-                  if (value == null) {
-                    return "Forncedor é obrigatório";
-                  }
-                  return null;
-                },
               ),
               CustomTextFormField(
                 label: "Preço de compra",
@@ -103,12 +85,6 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                     buyPrice = double.parse(value);
                   });
                 },
-                validator: (value) {
-                  if (value == null || value == '') {
-                    return "Preço de compra do produto é obrigatório";
-                  }
-                  return null;
-                },
               ),
               CustomTextFormField(
                 label: "Margem de lucro (Sem '%')",
@@ -117,12 +93,6 @@ class _WidgetProductFormState extends State<WidgetProductForm> {
                   setState(() {
                     profitMargin = double.parse(value);
                   });
-                },
-                validator: (value) {
-                  if (value == null || value == '') {
-                    return "Margem de lucro é obrigatório";
-                  }
-                  return null;
                 },
               ),
               CustomSaveCancelButtons(
