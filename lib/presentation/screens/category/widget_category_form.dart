@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/category.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_save_cancel_buttons.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
@@ -56,7 +54,7 @@ class _WidgetProductFormState extends State<WidgetCategoryForm> {
               ),
               CustomSaveCancelButtons(context: context, function: (){
                 if(_formKey.currentState!.validate()){
-                  Database.categories.add(Category(name: name, description: description, acronym: acronym));
+
                   Navigator.pop(context);
                 }
               })

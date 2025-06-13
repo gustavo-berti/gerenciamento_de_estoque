@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
 import 'package:gerenciamento_de_estoque/presentation/screens/movement/widget_movement_form.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_floating_button.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
@@ -13,6 +12,9 @@ class WidgetStock extends StatefulWidget {
 
 class _WidgetStock extends State<WidgetStock> {
   final _listKey = GlobalKey();
+  List<DropdownMenuItem> items = [
+    DropdownMenuItem(value: null, child: Text("Selecione um produto")),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +23,29 @@ class _WidgetStock extends State<WidgetStock> {
       body: Center(
         child: ListView.builder(
           key: _listKey,
-          itemCount:
-              Database.stock.products.isEmpty
-                  ? 0
-                  : Database.stock.products.length,
+          itemCount: items.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(Database.stock.products[index].name),
-              trailing: Text(
-                "${Database.stock.products[index].amount}",
-                style: TextStyle(fontSize: 15),
+              title: Text(
+                items[index].value?.toString() ?? "Produto ${index + 1}",
               ),
+              trailing: Text("1", style: TextStyle(fontSize: 15)),
             );
           },
         ),
       ),
       floatingActionButton: CustomFloatingButton(
         onPressed: () async {
-          final result = await showModalBottomSheet(context: context, builder: (context) => Padding(padding: EdgeInsets.all(5),child: WidgetMovementForm(),),);
+          final result = await showModalBottomSheet(
+            context: context,
+            builder:
+                (context) => Padding(
+                  padding: EdgeInsets.all(5),
+                  child: WidgetMovementForm(),
+                ),
+          );
           setState(() {
-            if(result == true){
+            if (result == true) {
               setState(() {});
             }
           });

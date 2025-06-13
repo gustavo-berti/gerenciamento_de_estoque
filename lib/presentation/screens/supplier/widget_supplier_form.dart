@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/domain/entities/address.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/city.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/country.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/state.dart'
-    as customState;
-import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/supplier.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_save_cancel_buttons.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_text_form_field.dart';
@@ -148,27 +142,6 @@ class _WidgetSupplierForm extends State<WidgetSupplierForm> {
                   context: context,
                   function: () {
                     if (_formKey.currentState!.validate()) {
-                      Database.suppliers.add(
-                        Supplier(
-                          name: name,
-                          address: Address(
-                            addressLine2: addressLine2,
-                            city: City(
-                              name: city,
-                              state: customState.State(
-                                country: Country(country),
-                                name: state,
-                                acronym: acronym,
-                              ),
-                            ),
-                            number: number,
-                            street: street,
-                          ),
-                          email: email,
-                          enterprise: enterprise,
-                          phoneNumber: phoneNumber,
-                        ),
-                      );
                       Navigator.pop(context);
                     }
                   },

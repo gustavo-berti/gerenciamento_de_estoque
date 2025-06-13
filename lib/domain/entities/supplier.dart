@@ -1,4 +1,5 @@
 import 'package:gerenciamento_de_estoque/domain/entities/address.dart';
+import 'package:gerenciamento_de_estoque/domain/entities/product_supplier.dart';
 
 class Supplier {
   String name;
@@ -6,5 +7,6 @@ class Supplier {
   String enterprise;
   String email;
   Address address;
-  Supplier({required this.name, required this.address, required this.email, required this.enterprise, required this.phoneNumber});
+  final List<ProductSupplier> products;
+  Supplier({required this.name, required this.address, required this.email, required this.enterprise, required this.phoneNumber, required this.products});
 }

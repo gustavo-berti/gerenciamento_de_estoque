@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/core/enums/movement_type.dart';
-import 'package:gerenciamento_de_estoque/domain/entities/database.dart';
 import 'package:gerenciamento_de_estoque/domain/entities/product.dart';
 import 'package:gerenciamento_de_estoque/domain/entities/stock_movement.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_dropdown_form_menu.dart';
@@ -19,6 +18,9 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
   late Product? product;
   late int? amount;
   late MovementType? type;
+  List<DropdownMenuItem> items = [
+    DropdownMenuItem(value: null, child: Text("Selecione um produto")),
+  ];
   
   @override
   Widget build(BuildContext context) {
@@ -30,15 +32,7 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
             CustomDropdownFormMenu(
               label: "Produto",
               hint: "Selecione o produto movimentado",
-              items:
-                  Database.stock.products.isEmpty
-                      ? []
-                      : Database.stock.products.map((prod) {
-                        return DropdownMenuItem(
-                          value: prod,
-                          child: Text(prod.name),
-                        );
-                      }).toList(),
+              items: items,
               onChanged: (value) {
                 setState(() {
                   product = value;
@@ -71,14 +65,6 @@ class _WidgetMovementForm extends State<WidgetMovementForm> {
               text: "Salvar",
               function: () {
                 if (_formKey.currentState!.validate()) {
-                  Database.stock.updateStock(
-                    StockMovement(
-                      product: product!,
-                      amount: amount!,
-                      date: DateTime.now(),
-                      type: type!,
-                    ),
-                  );
                   Navigator.pop(context, true);
                 }
               },
