@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_de_estoque/core/routes/routes.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_floating_button.dart';
-import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
 
 class WidgetProductList extends StatelessWidget {
   const WidgetProductList({super.key});
@@ -11,8 +10,7 @@ class WidgetProductList extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return CustomScafolld(
-      title: "Produtos",
+    return Scaffold(
       body: Center(
         child: ListView.builder(
           itemCount: items.length,

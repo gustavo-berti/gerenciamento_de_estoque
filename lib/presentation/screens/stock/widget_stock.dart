@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciamento_de_estoque/presentation/screens/movement/widget_movement_form.dart';
+import 'package:gerenciamento_de_estoque/presentation/screens/stock/widget_movement_form.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_floating_button.dart';
-import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
-
 class WidgetStock extends StatefulWidget {
   const WidgetStock({super.key});
 
@@ -18,8 +16,7 @@ class _WidgetStock extends State<WidgetStock> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScafolld(
-      title: "Estoque",
+    return Scaffold(
       body: Center(
         child: ListView.builder(
           key: _listKey,
