@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
-  final VoidCallback function;
+  final VoidCallback? function;
   final WidgetStateProperty<OutlinedBorder>? shape;
   final WidgetStateProperty<Size> size;
 
-  CustomElevatedButton({
+  const CustomElevatedButton({
+    super.key,
     required this.text,
     required this.function,
     this.shape,
@@ -24,7 +25,7 @@ class CustomElevatedButton extends StatelessWidget {
         fixedSize: size,
         shape: shape,
       ),
-      child: Text(text, style: TextStyle(color: Colors.black)),
+      child: Text(text, style: const TextStyle(color: Colors.black, fontSize: 17)),
     );
   }
 }

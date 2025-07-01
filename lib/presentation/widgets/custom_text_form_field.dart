@@ -8,6 +8,9 @@ class CustomTextFormField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final String? Function(String?)? validator;
   final bool useDefaultValidator;
+  final TextEditingController? controller;
+  final TextInputType? keyboardType;
+  final TextCapitalization? textCapitalization;
 
   const CustomTextFormField({
     Key? key,
@@ -17,6 +20,9 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.validator,
     this.useDefaultValidator = true,
+    this.controller,
+    this.keyboardType,
+    this.textCapitalization,
   }) : super(key: key);
 
   @override
@@ -24,6 +30,9 @@ class CustomTextFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
       child: TextFormField(
+        controller: controller,
+        keyboardType: keyboardType,
+        textCapitalization: textCapitalization ?? TextCapitalization.none,
         decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
           labelText: label,
