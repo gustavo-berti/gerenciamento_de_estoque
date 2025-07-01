@@ -9,16 +9,22 @@ class Stock {
   void updateStock(StockMovement stockMovement){
     switch(stockMovement.type){
       case MovementType.entry:
-        for(int i = 0; i<products.length; i++){
-          if(products[i] == stockMovement.product){
-            products[i].amount += stockMovement.amount;
+        for(int i = 0; i < products.length; i++){
+          if(products[i].id == stockMovement.product.id){
+            final updatedProduct = products[i].copyWith(
+              amount: products[i].amount + stockMovement.amount
+            );
+            products[i] = updatedProduct;
           }
         }
         break;
       case MovementType.exit:
-        for(int i = 0; i<products.length; i++){
-          if(products[i] == stockMovement.product){
-            products[i].amount -= stockMovement.amount;
+        for(int i = 0; i < products.length; i++){
+          if(products[i].id == stockMovement.product.id){
+            final updatedProduct = products[i].copyWith(
+              amount: products[i].amount - stockMovement.amount
+            );
+            products[i] = updatedProduct;
           }
         }
         break;

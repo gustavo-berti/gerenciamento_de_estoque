@@ -3,10 +3,14 @@ import 'package:gerenciamento_de_estoque/presentation/screens/category/widget_ca
 import 'package:gerenciamento_de_estoque/presentation/screens/product/widget_product_list.dart';
 import 'package:gerenciamento_de_estoque/presentation/screens/stock/widget_stock.dart';
 import 'package:gerenciamento_de_estoque/presentation/screens/supplier/widget_supplier_list.dart';
+import 'package:gerenciamento_de_estoque/presentation/screens/user/widget_user_list.dart';
+import 'package:gerenciamento_de_estoque/presentation/screens/location/widget_location.dart';
 import 'package:gerenciamento_de_estoque/presentation/widgets/custom_scaffold.dart';
 
 class Home extends StatelessWidget {
-  final tabs = ["Estoque", "Produtos", "Fornecedores", "Categorias", "Usuario"];
+  const Home({super.key});
+  
+  final List<String> tabs = const ["Estoque", "Produtos", "Categorias", "Fornecedores", "CEPs", "Usuários"];
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,8 @@ class Home extends StatelessWidget {
           WidgetProductList(),
           WidgetCategoryList(),
           WidgetSupplierList(),
-          WidgetSupplierList(),
+          WidgetLocation(),
+          WidgetUserList(),
         ]),
       ),
     );
